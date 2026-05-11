@@ -1,0 +1,897 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>甜嶼 Dessert Isle | 手作甜點工作室</title>
+  <meta name="description" content="甜嶼 Dessert Isle 是一個手作甜點網站範本，主打堅果塔、甜點禮盒與客製小點。">
+  <meta property="og:title" content="甜嶼 Dessert Isle">
+  <meta property="og:description" content="把堅果、蜂蜜與酥皮做成溫柔可愛的手作甜點。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/signature-dessert.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      --paper: #fffdf8;
+      --blush: #ffe8e6;
+      --rose: #e96976;
+      --berry: #b53655;
+      --mint: #cfe8d3;
+      --sage: #537761;
+      --honey: #d99635;
+      --ink: #342421;
+      --muted: #7d635d;
+      --line: rgba(52, 36, 33, .12);
+      --shadow: 0 24px 70px rgba(105, 61, 45, .14);
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Noto Sans TC", sans-serif;
+      line-height: 1.75;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(255, 253, 248, .88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: .03em;
+    }
+
+    .logo-badge {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--rose), var(--honey));
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(233, 105, 118, .26);
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .links a:hover {
+      color: var(--berry);
+    }
+
+    .menu-toggle {
+      width: 44px;
+      height: 44px;
+      display: none;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .pill,
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border-radius: 999px;
+      font-weight: 900;
+    }
+
+    .pill {
+      padding: 7px 13px;
+      background: rgba(207, 232, 211, .72);
+      color: var(--sage);
+      font-size: 13px;
+      width: fit-content;
+    }
+
+    .btn {
+      min-height: 48px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .btn.primary {
+      background: var(--berry);
+      color: #fff;
+      box-shadow: 0 16px 34px rgba(181, 54, 85, .22);
+    }
+
+    .btn.secondary {
+      background: #fff;
+      border-color: var(--line);
+      color: var(--ink);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      position: relative;
+      padding: 54px 0 82px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 72%;
+      background:
+        radial-gradient(circle at 12% 24%, rgba(255, 232, 230, .9), transparent 34%),
+        radial-gradient(circle at 88% 18%, rgba(207, 232, 211, .86), transparent 30%),
+        linear-gradient(180deg, #fff6f1, var(--paper));
+      z-index: -1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    h1,
+    h2 {
+      font-family: "Fraunces", "Noto Sans TC", serif;
+    }
+
+    h1 {
+      margin-top: 16px;
+      font-size: clamp(46px, 7vw, 88px);
+      max-width: 620px;
+    }
+
+    .lead {
+      max-width: 560px;
+      margin: 22px 0 30px;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 20px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .note-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .note-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .68);
+    }
+
+    .photo-composition {
+      position: relative;
+      min-height: 610px;
+    }
+
+    .dessert-photo {
+      position: absolute;
+      inset: 28px 0 0 54px;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transform: rotate(2deg);
+      background: var(--blush);
+    }
+
+    .dessert-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .sticker {
+      position: absolute;
+      left: 0;
+      top: 38px;
+      width: 154px;
+      height: 154px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--berry);
+      color: #fff;
+      font-family: "Fraunces", serif;
+      font-size: 26px;
+      line-height: 1;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(181, 54, 85, .24);
+      transform: rotate(-10deg);
+    }
+
+    .caption-card {
+      position: absolute;
+      right: 18px;
+      bottom: 28px;
+      max-width: 310px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, .72);
+      border-radius: 24px;
+      background: rgba(255, 253, 248, .9);
+      box-shadow: 0 18px 50px rgba(52, 36, 33, .18);
+      backdrop-filter: blur(16px);
+    }
+
+    .caption-card strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+
+    .caption-card span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section {
+      padding: 86px 0;
+    }
+
+    .section.tint {
+      background: #fff3ee;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+      margin-bottom: 34px;
+    }
+
+    .section-head h2 {
+      max-width: 640px;
+      font-size: clamp(36px, 5vw, 64px);
+    }
+
+    .section-head p {
+      max-width: 460px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 250px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 12px 36px rgba(105, 61, 45, .08);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 18px;
+      background: var(--blush);
+      color: var(--berry);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .quote {
+      padding: 30px;
+      border-radius: 32px;
+      background: var(--mint);
+    }
+
+    .quote h2 {
+      margin-top: 14px;
+      font-size: clamp(34px, 5vw, 58px);
+    }
+
+    .story-copy {
+      columns: 2 260px;
+      column-gap: 34px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .story-copy p {
+      margin: 0 0 16px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .menu-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: start;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: #fff;
+    }
+
+    .menu-item h3 {
+      font-size: 21px;
+      margin-bottom: 6px;
+    }
+
+    .menu-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .price {
+      font-family: "Fraunces", serif;
+      color: var(--berry);
+      font-size: 24px;
+      white-space: nowrap;
+    }
+
+    .feature-band {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      padding: 48px;
+      border-radius: 34px;
+      background: var(--ink);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .feature-band h2 {
+      max-width: 720px;
+      margin-bottom: 14px;
+      font-size: clamp(34px, 5vw, 62px);
+    }
+
+    .feature-band p {
+      max-width: 640px;
+      margin: 0;
+      color: rgba(255, 253, 248, .76);
+    }
+
+    .feature-band .btn {
+      background: var(--mint);
+      color: var(--ink);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .contact-panel,
+    .form-panel {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 12px 36px rgba(105, 61, 45, .08);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .contact-list div {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 18px;
+      background: #fff7f4;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--paper);
+      color: var(--ink);
+      padding: 13px 15px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 4px rgba(233, 105, 118, .16);
+    }
+
+    textarea {
+      min-height: 116px;
+      resize: vertical;
+    }
+
+    .success {
+      display: none;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(207, 232, 211, .72);
+      color: var(--sage);
+      font-weight: 900;
+    }
+
+    footer {
+      padding: 34px 0;
+      background: var(--ink);
+      color: rgba(255, 253, 248, .76);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 920px) {
+      .links {
+        position: fixed;
+        inset: 78px 16px auto;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: rgba(255, 253, 248, .96);
+        box-shadow: var(--shadow);
+      }
+
+      .links.open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: grid;
+      }
+
+      .hero-grid,
+      .story-grid,
+      .feature-band,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-composition {
+        min-height: 480px;
+      }
+
+      .dessert-photo {
+        inset: 24px 0 0 34px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .logo span:last-child {
+        max-width: 150px;
+        line-height: 1.2;
+      }
+
+      .hero {
+        padding-top: 34px;
+      }
+
+      .hero-actions,
+      .feature-band .btn,
+      .form-panel .btn {
+        width: 100%;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .note-row span {
+        width: 100%;
+      }
+
+      .photo-composition {
+        min-height: 380px;
+      }
+
+      .dessert-photo {
+        inset: 18px 0 0 18px;
+        border-radius: 24px;
+      }
+
+      .sticker {
+        width: 112px;
+        height: 112px;
+        font-size: 20px;
+      }
+
+      .caption-card {
+        right: 10px;
+        bottom: 8px;
+        max-width: 270px;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 14px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-band,
+      .contact-panel,
+      .form-panel,
+      .quote {
+        padding: 22px;
+        border-radius: 24px;
+      }
+
+      .footer-inner {
+        display: grid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="logo" href="#top" aria-label="回到首頁">
+        <span class="logo-badge"><i data-lucide="cake-slice"></i></span>
+        <span>甜嶼 Dessert Isle</span>
+      </a>
+      <nav class="links" id="navLinks" aria-label="主選單">
+        <a href="#desserts">甜點</a>
+        <a href="#story">理念</a>
+        <a href="#menu">菜單</a>
+        <a href="#contact">訂購</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="開啟選單">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="pill"><i data-lucide="sparkles"></i> Fresh baked, softly sweet</div>
+          <h1>把今天，烤成一份小小的甜。</h1>
+          <p class="lead">甜嶼是一間手作甜點工作室，主打蜂蜜堅果塔、杏仁脆片與季節禮盒。可愛、乾淨、有質感，適合送禮，也適合留給自己慢慢吃。</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#contact"><i data-lucide="shopping-bag"></i> 預訂甜點</a>
+            <a class="btn secondary" href="#menu"><i data-lucide="list"></i> 看本週菜單</a>
+          </div>
+          <div class="note-row">
+            <span><i data-lucide="clock-3"></i> 接單後新鮮製作</span>
+            <span><i data-lucide="leaf"></i> 甜度清爽</span>
+            <span><i data-lucide="gift"></i> 可做禮盒</span>
+          </div>
+        </div>
+
+        <div class="photo-composition">
+          <div class="sticker">Nutty<br>Honey</div>
+          <div class="dessert-photo">
+            <img src="images/signature-dessert.jpg" alt="蜂蜜南瓜籽杏仁堅果脆片">
+          </div>
+          <div class="caption-card">
+            <strong>招牌南瓜籽杏仁脆片</strong>
+            <span>杏仁片、南瓜籽與蜂蜜糖衣，薄脆香甜，茶點剛剛好。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tint" id="desserts">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>不是華麗炫技，是讓人想再吃一口的細節。</h2>
+          <p>用柔和的色彩與清楚的資訊呈現商品，讓網站看起來親近，也保有專業甜點品牌該有的信任感。</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon"><i data-lucide="wheat"></i></div>
+            <h3>酥皮堅果塔</h3>
+            <p>奶油塔殼烤到酥香，填入蜂蜜堅果與果乾，口感飽滿不膩口。</p>
+          </article>
+          <article class="card">
+            <div class="card-icon"><i data-lucide="cookie"></i></div>
+            <h3>杏仁脆片</h3>
+            <p>薄脆、輕甜、堅果香明顯，適合辦公室分享與下午茶點心。</p>
+          </article>
+          <article class="card">
+            <div class="card-icon"><i data-lucide="ribbon"></i></div>
+            <h3>客製禮盒</h3>
+            <p>可依節慶、活動與預算調整品項、貼紙、緞帶與小卡設計。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="story">
+      <div class="wrap story-grid">
+        <div class="quote">
+          <div class="pill"><i data-lucide="heart"></i> Dessert Philosophy</div>
+          <h2>甜點要漂亮，也要吃得出誠意。</h2>
+        </div>
+        <div class="story-copy">
+          <p>我們喜歡柔軟可愛的視覺，但甜點本身不馬虎。每一批堅果都分開烘烤，再依香氣與口感搭配蜂蜜糖衣。</p>
+          <p>甜嶼的甜度不走厚重路線，希望讓杏仁、南瓜籽、核桃與果乾都能有自己的存在感。</p>
+          <p>網站之後可以很容易擴充成商品頁、訂購表單、IG 連結、LINE 官方帳號或簡單購物車。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tint" id="menu">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>本週甜點菜單</h2>
+          <p>價格與品項都是範例，可以依你的實際商品替換。版面已經適合直接放到 GitHub Pages。</p>
+        </div>
+        <div class="menu-grid">
+          <article class="menu-item">
+            <div>
+              <h3>蜂蜜綜合堅果塔</h3>
+              <p>核桃、腰果、杏仁、蔓越莓，經典禮盒款。</p>
+            </div>
+            <strong class="price">$120</strong>
+          </article>
+          <article class="menu-item">
+            <div>
+              <h3>南瓜籽杏仁脆片</h3>
+              <p>酥薄清香，甜度低，適合搭配熱茶。</p>
+            </div>
+            <strong class="price">$180</strong>
+          </article>
+          <article class="menu-item">
+            <div>
+              <h3>莓果核桃小塔</h3>
+              <p>酸甜果乾平衡堅果香，單顆也很有份量。</p>
+            </div>
+            <strong class="price">$135</strong>
+          </article>
+          <article class="menu-item">
+            <div>
+              <h3>季節限定禮盒</h3>
+              <p>六入或十二入，可搭配節慶包裝與小卡。</p>
+            </div>
+            <strong class="price">$680+</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap feature-band">
+        <div>
+          <h2>活動、市集、企業送禮，都能做成你的專屬口味。</h2>
+          <p>提供數量估算、甜點搭配、包裝建議與交期確認。先留下需求，我們會把甜點規劃得清楚又好看。</p>
+        </div>
+        <a class="btn" href="#contact"><i data-lucide="send"></i> 詢問客製</a>
+      </div>
+    </section>
+
+    <section class="section tint" id="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-panel">
+          <div class="pill"><i data-lucide="message-circle-heart"></i> Order</div>
+          <h2>預訂與合作</h2>
+          <p>目前是靜態網站版本，表單會先產生 Email 草稿。上線後也可以改接 Google 表單、Formspree 或 LINE 官方帳號。</p>
+          <div class="contact-list">
+            <div><i data-lucide="mail"></i> hello@dessert-isle.example</div>
+            <div><i data-lucide="instagram"></i> @dessert.isle</div>
+            <div><i data-lucide="map-pin"></i> Taiwan, handmade to order</div>
+          </div>
+        </div>
+        <div class="form-panel">
+          <form id="orderForm">
+            <label>姓名
+              <input name="name" required placeholder="請輸入你的姓名">
+            </label>
+            <label>聯絡 Email
+              <input name="email" type="email" required placeholder="you@example.com">
+            </label>
+            <label>想詢問的品項
+              <select name="item">
+                <option>蜂蜜綜合堅果塔</option>
+                <option>南瓜籽杏仁脆片</option>
+                <option>莓果核桃小塔</option>
+                <option>季節限定禮盒</option>
+                <option>活動或企業客製</option>
+              </select>
+            </label>
+            <label>需求內容
+              <textarea name="message" placeholder="例如：日期、數量、預算、是否需要禮盒包裝"></textarea>
+            </label>
+            <button class="btn primary" type="submit"><i data-lucide="mail-check"></i> 產生詢問信</button>
+            <div class="success" id="successMsg">已幫你整理成 Email 草稿，可以直接寄出。</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <strong>甜嶼 Dessert Isle</strong>
+      <span>© 2026 Handmade Dessert Studio. Built for GitHub Pages.</span>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons({ strokeWidth: 2.2 });
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => navLinks.classList.remove("open"));
+    });
+
+    document.getElementById("orderForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const form = new FormData(event.currentTarget);
+      const subject = encodeURIComponent("甜點預訂詢問");
+      const body = encodeURIComponent(
+        `姓名：${form.get("name")}\nEmail：${form.get("email")}\n品項：${form.get("item")}\n需求：${form.get("message") || "尚未填寫"}`
+      );
+      document.getElementById("successMsg").style.display = "block";
+      window.location.href = `mailto:hello@dessert-isle.example?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
